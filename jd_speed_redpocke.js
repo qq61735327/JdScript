@@ -11,17 +11,17 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版红包
-15 0/1 * * * https://github.com/wulove/my_scripts/raw/master/jd_speed_redpocke.js, tag=京东极速版红包, enabled=true
+15 0/1 * * * https://raw.githubusercontent.com/cantain/JdScript/main/jd_speed_redpocke.js, tag=京东极速版红包, enabled=true
 
 ================Loon==============
 [Script]
-cron "15 0/1 * * *" script-path=https://github.com/wulove/my_scripts/raw/master/jd_speed_redpocke.js,tag=京东极速版红包
+cron "15 0/1 * * *" script-path=https://raw.githubusercontent.com/cantain/JdScript/main/jd_speed_redpocke.js,tag=京东极速版红包
 
 ===============Surge=================
-京东极速版红包 = type=cron,cronexp="15 0/1 * * *",wake-system=1,timeout=3600,script-path=https://github.com/wulove/my_scripts/raw/master/jd_speed_redpocke.js
+京东极速版红包 = type=cron,cronexp="15 0/1 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/cantain/JdScript/main/jd_speed_redpocke.js
 
 ============小火箭=========
-京东极速版红包 = type=cron,script-path=https://github.com/wulove/my_scripts/raw/master/jd_speed_redpocke.js, cronexpr="15 0/1 * * *", timeout=3600, enable=true
+京东极速版红包 = type=cron,script-path=https://raw.githubusercontent.com/cantain/JdScript/main/jd_speed_redpocke.js, cronexpr="15 0/1 * * *", timeout=3600, enable=true
 */
 
 const $ = new Env("京东极速版红包");
@@ -98,7 +98,7 @@ if ($.isNode()) {
       }
       await springRewardQuery();
       await shareCodesFormat();
-      
+
       // 手动执行提现助力,执行方式，inviterId, redEnvelopeId可从分享的qq链接中取
       // node jd_speed_redpocke.js inviterId, redEnvelopeId
       if (process.argv && process.argv.length > 3) {
