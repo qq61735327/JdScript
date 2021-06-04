@@ -101,16 +101,18 @@ if ($.isNode()) {
 
       // 手动执行提现助力,执行方式，inviterId, redEnvelopeId可从分享的qq链接中取
       // node jd_speed_redpocke.js inviterId, redEnvelopeId
-      // if (process && process.argv && process.argv.length > 3) {
-      //   console.log("process.argv", process.argv[2]);
-      //   await helpOpenRedEnvelopeInteract(
-      //     process.argv[2],
-      //     process.argv[3],
-      //     "2"
-      //   );
-      //   continue;
-      // }
-      
+      if($.isNode()){
+        if (process && process.argv && process.argv.length > 3) {
+          console.log("process.argv", process.argv[2]);
+          await helpOpenRedEnvelopeInteract(
+            process.argv[2],
+            process.argv[3],
+            "2"
+          );
+          continue;
+        }
+      }
+        
       await jsRedPacket();
     }
   }
@@ -339,12 +341,12 @@ async function speedUp() {
                 message += `签到加速成功\n`;
                 console.log(`签到加速成功，额外获取一份红包或微信现金\n`);
               } else if (data.data.retCode === 10013) {
-                console.error(`加速失败浪费一次机会...\n`);
+                console.log(`加速失败浪费一次机会...\n`);
               } else if (data.data.retCode === 300) {
-                console.error(`加速机会已用完...\n`);
+                console.log(`加速机会已用完...\n`);
                 $.speedUp = false;
               } else if (data.data.retCode === 10019) {
-                console.error(`进度已达上限...\n`);
+                console.log(`进度已达上限...\n`);
                 $.speedUp = false;
               } else {
                 $.speedUp = false;
