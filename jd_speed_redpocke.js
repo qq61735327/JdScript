@@ -101,7 +101,7 @@ if ($.isNode()) {
 
       // 手动执行提现助力,执行方式，inviterId, redEnvelopeId可从分享的qq链接中取
       // node jd_speed_redpocke.js inviterId, redEnvelopeId
-      if (process.argv && process.argv.length > 3) {
+      if (process && process.argv && process.argv.length > 3) {
         console.log("process.argv", process.argv[2]);
         await helpOpenRedEnvelopeInteract(
           process.argv[2],
