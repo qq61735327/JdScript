@@ -41,7 +41,7 @@ if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item]);
   });
-  if (process.env.JD_DEBUG && process.env.JD_DEBUG === "false")
+  if (process && process.env.JD_DEBUG && process.env.JD_DEBUG === "false")
     console.log = () => {};
 } else {
   cookiesArr = [
@@ -101,15 +101,15 @@ if ($.isNode()) {
 
       // 手动执行提现助力,执行方式，inviterId, redEnvelopeId可从分享的qq链接中取
       // node jd_speed_redpocke.js inviterId, redEnvelopeId
-      if (process && process.argv && process.argv.length > 3) {
-        console.log("process.argv", process.argv[2]);
-        await helpOpenRedEnvelopeInteract(
-          process.argv[2],
-          process.argv[3],
-          "2"
-        );
-        continue;
-      }
+      // if (process && process.argv && process.argv.length > 3) {
+      //   console.log("process.argv", process.argv[2]);
+      //   await helpOpenRedEnvelopeInteract(
+      //     process.argv[2],
+      //     process.argv[3],
+      //     "2"
+      //   );
+      //   continue;
+      // }
       
       await jsRedPacket();
     }
